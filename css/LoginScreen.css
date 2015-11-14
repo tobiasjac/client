@@ -103,3 +103,16 @@ a:link {
     background-color: transparent;
     text-decoration: none;
 }
+
+#table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: left;
+}
+table#table tr:nth-child(even) {
+    background-color: #eee;
+}
+table#table tr:nth-child(odd) {
+    background-color:#fff;
+}

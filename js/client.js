@@ -22,7 +22,7 @@ $(document).ready(function() {
         var password = $("#password").val();
 
         if(username == "Tobias" && password == "1234") {
-            window.location.href = "UserMenuScreen.html";
+            window.location.href = "AdminMenuScreen.html";
         }
         else {
             alert("Something went wrong. Try again.")
@@ -56,7 +56,7 @@ $(document).ready(function() {
             data: "name=" + username + "&pwd=" + password,
             success: function(html){
                 if (html == 'true') {
-                    window.location.href="UserMenuScreen.html";
+                    window.location.href="AdminMenuScreen.html";
                 }
                 else {
                     alert("Something went wrong. Try again.")
