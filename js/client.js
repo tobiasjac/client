@@ -66,3 +66,33 @@ $(document).ready(function() {
         return false;
     });
 });*/
+
+
+$(document).ready(function() {
+    $("#test1").click(function () {
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:10018/api/users/",
+            "method": "GET"
+            /*            "headers": {
+             "content-type": "application/json",
+             "cache-control": "no-cache",
+             "postman-token": "c20629fd-6e17-a36f-b1fb-48d05a57af6a"
+             }*/
+        };
+
+        $.ajax({
+            url: "http://localhost:10018/api/users/",
+            "method": 'GET',
+            success: function (response) {
+                var trHTML = '';
+                $.each(response, function (i, item) {
+                    trHTML += '<tr><td>' + item.rank + '</td><td>' + item.content + '</td><td>' + item.UID + '</td></tr>';
+                });
+                $('#table').append(trHTML);
+            }
+        });
+    });
+});
