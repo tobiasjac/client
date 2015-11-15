@@ -67,7 +67,7 @@ $(document).ready(function() {
     });
 });*/
 
-
+//function that get all users from the database and inserts them into table
 $(document).ready(function() {
     $("#test1").click(function () {
 
@@ -76,23 +76,15 @@ $(document).ready(function() {
             "crossDomain": true,
             "url": "http://localhost:10018/api/users/",
             "method": "GET"
-            /*            "headers": {
-             "content-type": "application/json",
-             "cache-control": "no-cache",
-             "postman-token": "c20629fd-6e17-a36f-b1fb-48d05a57af6a"
-             }*/
         };
 
-        $.ajax({
-            url: "http://localhost:10018/api/users/",
-            "method": 'GET',
-            success: function (response) {
+        $.ajax(settings).done(function (response) {
                 var trHTML = '';
                 $.each(response, function (i, item) {
                     trHTML += '<tr><td>' + item.rank + '</td><td>' + item.content + '</td><td>' + item.UID + '</td></tr>';
                 });
                 $('#table').append(trHTML);
-            }
+            console.log(response);
         });
     });
 });
