@@ -19,6 +19,15 @@ body {
     border-radius: 5px;
     border-top: 5px solid #ff656c;
     margin: 0 auto;
+
+}
+.showusers_block {
+    width: 700px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #ff656c;
+    margin: 0 auto;
 }
 
 .login-block h1 {
