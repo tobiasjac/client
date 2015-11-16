@@ -44,13 +44,28 @@ $(document).ready(function() {
     });
 });
 
-/*
+
 $(document).ready(function() {
     $("#test").click(function () {
+
         var username = $("#username").val();
         var password = $("#password").val();
 
-        $.ajax({
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:10018/api/login/",
+            "method": "POST",
+            "processData": false,
+            "data": "{\n    \"username\" : \"schnoor\",\n    \"password\" : \"123\"\n}"
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+
+
+/*        $.ajax({
             "method": "POST",
             url: "http://localhost:10018/api/login/",
             data: "name=" + username + "&pwd=" + password,
@@ -62,10 +77,10 @@ $(document).ready(function() {
                     alert("Something went wrong. Try again.")
                 }
             }
-        });
+        });*/
         return false;
     });
-});*/
+});
 
 //function that get all users from the database and inserts them into table
 $(document).ready(function() {
