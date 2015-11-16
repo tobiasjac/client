@@ -6,7 +6,7 @@ h1 {
     text-align: center;
 }
 
-body {
+.bodystyle {
     background-color: #31b0d5;
     background-size: cover;
     font-family: Verdana, serif;

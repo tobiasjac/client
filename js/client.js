@@ -44,14 +44,14 @@ $(document).ready(function() {
     });
 });
 
-
+//function that runs as soon as the "login"-button on the front page is clicked
 $(document).ready(function() {
     $("#login").click(function () {
 
         var loginInfo = {
             "username" : $("#username").val(),
             "password" : $("#password").val()
-        }
+        };
 
         var settings = {
             "async": true,
@@ -60,11 +60,10 @@ $(document).ready(function() {
             "method": "POST",
             "processData": false,
             "data" : JSON.stringify(loginInfo)
-           // "data": "{\n    \"username\" : \"schnoor\",\n    \"password\" : \"123\"\n}"
         };
 
         $.ajax(settings).done(function (response) {
-            window.location.href="../html/AdminMenuScreen.html";
+            window.location.href="../html/UserMenu.html";
         });
     });
 });
