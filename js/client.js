@@ -62,7 +62,7 @@ $(document).ready(function() {
             "data" : JSON.stringify(loginInfo)
         };
 
-        $.ajax(settings).done(function (response) {
+        $.ajax(settings).done(function () {
             window.location.href="../html/UserMenu.html";
         });
     });
