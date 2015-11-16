@@ -46,10 +46,12 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    $("#test").click(function () {
+    $("#login").click(function () {
 
-        var username = $("#username").val();
-        var password = $("#password").val();
+        var loginInfo = {
+            "username" : $("#username").val(),
+            "password" : $("#password").val()
+        }
 
         var settings = {
             "async": true,
@@ -57,28 +59,13 @@ $(document).ready(function() {
             "url": "http://localhost:10018/api/login/",
             "method": "POST",
             "processData": false,
-            "data": "{\n    \"username\" : \"schnoor\",\n    \"password\" : \"123\"\n}"
+            "data" : JSON.stringify(loginInfo)
+           // "data": "{\n    \"username\" : \"schnoor\",\n    \"password\" : \"123\"\n}"
         };
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
+            window.location.href="../html/AdminMenuScreen.html";
         });
-
-
-/*        $.ajax({
-            "method": "POST",
-            url: "http://localhost:10018/api/login/",
-            data: "name=" + username + "&pwd=" + password,
-            success: function(html){
-                if (html == 'true') {
-                    window.location.href="AdminMenuScreen.html";
-                }
-                else {
-                    alert("Something went wrong. Try again.")
-                }
-            }
-        });*/
-        return false;
     });
 });
 
