@@ -57,12 +57,17 @@ $(document).ready(function() {
             "async": true,
             "crossDomain": true,
             "url": "http://localhost:10018/api/games/" + $("#id").val(),
-            "method": "POST",
+            "method": "GET",
             "processData": false,
             "data": ""
         };
 
         $.ajax(settings.url).done(function (response) {
+            var trHTML = '';
+            $.each(response, function (i, item) {
+                trHTML += '<tr><td>' + item.id + '</td><td>' + item.firstName + '</td><td>' +item.lastName + '</td><td>' + item.email + '</td><td>'+ item.username + '</td><td>'+ item.created + '</td></tr>';
+            });
+            $('#table').append(trHTML);
             console.log(response);
         });
     });

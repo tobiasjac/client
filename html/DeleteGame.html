@@ -8,13 +8,26 @@
 </head>
 <body class="bodystyle">
 
-<div class="logo"></div>
-<div class="login-block">
-    <h1>Type Game Id you wish to delete:</h1>
+<div class="showusers_block">
+
+    <h1>Here's a list of all users:</h1>
+
+    <table style="width:100%" id="table">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>E-mail</th>
+            <th>Username</th>
+            <th>Created</th>
+        </tr>
+    </table>
+
     <form>
         <input type="text" value="" placeholder="Game ID" id="id" required/>
         <input name="deletebutton" type="button" id="gameid" value="Delete Game"/>
     </form>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
