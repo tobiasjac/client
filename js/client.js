@@ -49,7 +49,28 @@ $(document).ready(function() {
         });
     });
 });
+// method that get all scores from database and populates table
+$(document).ready(function() {
+    $("#test2").click(function () {
 
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:10018/api/scores/",
+            "method": "GET"
+        };
+
+        $.ajax(settings).done(function (response) {
+            var trHTML = '';
+            $.each(response, function (i, item) {
+                trHTML += '<tr><td>' + item.score + '</td><td>' + item.user.id + '</td><td>' +item.opponent.id +
+                    '</td><td>' + item.game.gameId + '</td></tr>';
+            });
+            $('#table').append(trHTML);
+            console.log(response);
+        });
+    });
+});
 //method that deletes a game in the database according to gameId specified by user
 $(document).ready(function() {
     $("#gameid").click(function () {
