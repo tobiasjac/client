@@ -41,8 +41,8 @@ $(document).ready(function() {
         $.ajax(settings).done(function (response) {
             var trHTML = '';
             $.each(response, function (i, item) {
-                trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' +item.opponent.id + '</td><td>' + item.name +
-                        '</td><td>'+ item.created + '</td><td>'+ item.winner.id + '</td></tr>';
+                trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' +item.opponent.id
+                    + '</td><td>' + item.name + '</td><td>'+ item.created + '</td><td>'+ item.winner.id + '</td></tr>';
             });
             $('#table').append(trHTML);
             console.log(response);
