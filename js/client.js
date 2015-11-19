@@ -16,11 +16,13 @@ $(document).ready(function() {
             "data" : JSON.stringify(loginInfo)
         };
 
-        $.ajax(settings).done(function (response) {
+        $.ajax(settings).done(function (data, status, xhr) {
+            if (xhr.status == 200) {
                 window.location.href="../html/UserMenu.html";
-                if (xhr.status == 400) {
-                    console.log("something went wrong");
-                }
+            }
+            else {
+                alert("Fail");
+            }
         });
     });
 });
@@ -54,11 +56,13 @@ $(document).ready(function() {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:10018/api/games/2",
-            "method": "DELETE"
+            "url": "http://localhost:10018/api/games/" + $("#id").val(),
+            "method": "POST",
+            "processData": false,
+            "data": ""
         };
 
-        $.ajax(settings.url + $("#id").val()).done(function (response) {
+        $.ajax(settings.url).done(function (response) {
             console.log(response);
         });
     });
