@@ -34,16 +34,17 @@ $(document).ready(function() {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:10018/api/users/",
+            "url": "http://localhost:10018/api/games/open",
             "method": "GET"
         };
 
         $.ajax(settings).done(function (response) {
-                var trHTML = '';
-                $.each(response, function (i, item) {
-                    trHTML += '<tr><td>' + item.id + '</td><td>' + item.firstName + '</td><td>' +item.lastName + '</td><td>' + item.email + '</td><td>'+ item.username + '</td><td>'+ item.created + '</td></tr>';
-                });
-                $('#table').append(trHTML);
+            var trHTML = '';
+            $.each(response, function (i, item) {
+                trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' +item.opponent.id + '</td><td>' + item.name +
+                        '</td><td>'+ item.created + '</td><td>'+ item.winner.id + '</td></tr>';
+            });
+            $('#table').append(trHTML);
             console.log(response);
         });
     });
@@ -67,3 +68,4 @@ $(document).ready(function() {
         });
     });
 });
+
