@@ -63,7 +63,7 @@ $(document).ready(function() {
         $.ajax(settings).done(function (response) {
             var trHTML = '';
             $.each(response, function (i, item) {
-                trHTML += '<tr><td>' + item.score + '</td><td>' + item.user.id + '</td><td>' +item.opponent.id +
+                trHTML += '<tr><td>' + item.score + '</td><td>' +item.user.username + '</td><td>' + item.user.id + '</td><td>' +item.opponent.id +
                     '</td><td>' + item.game.gameId + '</td></tr>';
             });
             $('#table').append(trHTML);
