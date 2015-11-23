@@ -89,7 +89,7 @@ $(document).ready(function() {
         });
     });
 });
-
+// function that creates game in database
 $(document).ready(function() {
     $(".creategame").click(function () {
 
@@ -114,5 +114,31 @@ $(document).ready(function() {
         $.ajax(settings).done(function (response) {
             console.log(response);
         });
+    });
+});
+
+$(document).ready(function() {
+    $(".gameid").click(function () {
+
+        var gameSettings = {
+            "opponent" : {
+                "id" : "2"
+            },
+            "gameId" : "32"
+        };
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:10018/api/games/join",
+            "method": "PUT",
+            "processData": false,
+            "data": ""
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+
     });
 });
