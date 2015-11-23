@@ -21,7 +21,7 @@ $(document).ready(function() {
                 window.location.href="../html/UserMenu.html";
             }
             else {
-                alert("Fail");
+                alert("Something went wrong. Try again!");
             }
         });
     });
@@ -73,7 +73,7 @@ $(document).ready(function() {
 });
 //method that deletes a game in the database according to gameId specified by user
 $(document).ready(function() {
-    $("#gameid").click(function () {
+    $(".gameid").click(function () {
 
         var settings = {
             "async": true,
@@ -90,3 +90,29 @@ $(document).ready(function() {
     });
 });
 
+$(document).ready(function() {
+    $(".creategame").click(function () {
+
+        var gameSettings = {
+            "host" : {
+                "id" : $(".hostid").val(),
+                "controls" : $(".controls").val()
+            },
+            "name" : $(".gamename").val(),
+            "mapSize" : $(".mapsize").val()
+        };
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:10018/api/games/",
+            "method": "POST",
+            "processData": false,
+            "data": JSON.stringify(gameSettings)
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    });
+});
