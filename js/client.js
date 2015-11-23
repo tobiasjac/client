@@ -29,7 +29,6 @@ $(document).ready(function() {
 
 //function that get all open games from the database and inserts them into table
 $(document).ready(function() {
-    $("#populategame").click(function () {
 
         $("#table td").remove();
 
@@ -48,6 +47,20 @@ $(document).ready(function() {
             });
             $('#table').append(trHTML);
             console.log(response);
+
+            $("#populategame").click(function () {
+
+                $("#table td").remove();
+
+                $.ajax(settings).done(function (response) {
+                    var trHTML = '';
+                    $.each(response, function (i, item) {
+                        trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' +item.opponent.id
+                            + '</td><td>' + item.name + '</td><td>'+ item.created + '</td><td>'+ item.winner.id + '</td></tr>';
+                    });
+                    $('#table').append(trHTML);
+                    console.log(response);
+            });
         });
     });
 });
