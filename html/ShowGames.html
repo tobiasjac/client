@@ -10,7 +10,7 @@
 
 <div class="showusers_block">
 
-    <h3>List of all open games:</h3>
+    <h3>List of all open games available to join:</h3>
     <table style="width:100%" id="table">
         <tr>
             <th>Game ID</th>
@@ -23,11 +23,11 @@
     </table>
 
     <form>
-        <input type="button" id="test1" value="Populate Table"/>
-        <input type="text" value="" placeholder="Game ID" id="id" required/>
-        <input name="deletegamebutton" type="button" class="gameid" value="Delete Game"/>
-        <input name="joingamebutton" type="button" class="gameid" value="Join Game"/>
-        <a href="CreateGame.html"><input type="button" class="gameid" value="Create Game"/></a>
+        <input type="button" id="populategame" value="Populate Table"/>
+        <input type="text" value="" placeholder="Game ID" id="deleteid" required/>
+        <input name="deletegamebutton" type="button" id="deletegame" value="Delete Game"/>
+        <a href="CreateGame.html"><input type="button" value="Create Game"/></a>
+        <input name="joingamebutton" type="button" id="joingame" value="Join Game"/>
         <a href="UserMenu.html"><input name="deletebutton" type="button" value="Back to menu"/></a>
     </form>
 
@@ -42,6 +42,10 @@
             <th>Winner</th>
         </tr>
     </table>
+
+    <form>
+        <input type="button" id="populategame2" value="Populate Table"/>
+    </form>
 
 </div>
 

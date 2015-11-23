@@ -27,9 +27,11 @@ $(document).ready(function() {
     });
 });
 
-//function that get all users from the database and inserts them into table
+//function that get all open games from the database and inserts them into table
 $(document).ready(function() {
-    $("#test1").click(function () {
+    $("#populategame").click(function () {
+
+        $("#table td").remove();
 
         var settings = {
             "async": true,
@@ -53,6 +55,8 @@ $(document).ready(function() {
 $(document).ready(function() {
     $("#test2").click(function () {
 
+        $("#table td").remove();
+
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -73,12 +77,12 @@ $(document).ready(function() {
 });
 //method that deletes a game in the database according to gameId specified by user
 $(document).ready(function() {
-    $(".gameid").click(function () {
+    $("#deletegame").click(function () {
 
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:10018/api/games/" + $("#id").val(),
+            "url": "http://localhost:10018/api/games/" + $("#deleteid").val(),
             "method": "POST",
             "processData": false,
             "data": ""
@@ -116,29 +120,53 @@ $(document).ready(function() {
         });
     });
 });
-
+// method that a user to join a game created/hosted by another user
 $(document).ready(function() {
-    $(".gameid").click(function () {
+    $("#joingame").click(function () {
 
         var gameSettings = {
             "opponent" : {
                 "id" : "2"
             },
-            "gameId" : "32"
+            "gameId" : $("#deleteid").val()
         };
 
         var settings = {
             "async": true,
             "crossDomain": true,
             "url": "http://localhost:10018/api/games/join",
-            "method": "PUT",
+            "method": "POST",
             "processData": false,
-            "data": ""
+            "data": JSON.stringify(gameSettings)
         };
 
         $.ajax(settings).done(function (response) {
             console.log(response);
         });
-
     });
+});
+
+$(document).ready(function() {
+    //$("#populategame2").click(function () {
+
+        // removes data from table
+        $("#table2 td").remove();
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:10018/api/games/pending/1" ,
+            "method": "GET"
+        };
+
+        $.ajax(settings).done(function (response) {
+            var trHTML = '';
+            $.each(response, function (i, item) {
+                trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' +item.opponent.id
+                    + '</td><td>' + item.name + '</td><td>'+ item.created + '</td><td>'+ item.winner.id + '</td></tr>';
+            });
+            $('#table2').append(trHTML);
+            console.log(response);
+        });
+    //});
 });

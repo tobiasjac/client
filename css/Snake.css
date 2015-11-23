@@ -125,3 +125,15 @@ table#table tr:nth-child(even) {
 table#table tr:nth-child(odd) {
     background-color:#fff;
 }
+#table2, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: left;
+}
+table#table2 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#table2 tr:nth-child(odd) {
+    background-color:#fff;
+}
