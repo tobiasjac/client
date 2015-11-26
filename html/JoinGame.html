@@ -2,22 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Game Menu</title>
+    <title>Join game</title>
 
     <link rel="stylesheet" type="text/css" href="../css/Snake.css">
-
 </head>
 <body class="bodystyle">
 
 <div class="showusers_block">
 
     <form>
-        <!--<input type="text" value="" placeholder="Host ID" class="hostid"/>-->
+        <input type="text" value="" placeholder="Game ID" id="gameid" required/>
         <input type="text" value="" placeholder="Enter controls" class="controls">
-        <input type="text" value="" placeholder="Game name" class="gamename">
-        <input type="text" value="" placeholder="Map Size" class="mapsize">
-        <a href="ShowGames.html"><input name="creategamebutton" type="button" class="creategame" value="Create Game"/></a>
+
+        <a href="ShowGames.html"><input name="joingamebutton" type="button" class="joingame" value="Join Game"/></a>
         <a href="ShowGames.html"><input name="" type="button" value="Back to menu"/></a>
+
     </form>
 
 </div>

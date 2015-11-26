@@ -57,7 +57,7 @@ $(document).ready(function () {
                 var trHTML = '';
                 $.each(response, function (i, item) {
                     trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' + item.opponent.id
-                        + '</td><td>' + item.name + '</td><td>' + item.created + '</td><td>' + item.winner.id + '</td></tr>';
+                        + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
                 });
                 $('#table').append(trHTML);
                 console.log(response);
@@ -96,7 +96,7 @@ $(document).ready(function () {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:10018/api/games/" + $("#deleteid").val(),
+            "url": "http://localhost:10018/api/games/" + $("#gameid").val(),
             "method": "POST",
             "processData": false,
             "data": ""
@@ -113,7 +113,7 @@ $(document).ready(function () {
 
         var gameSettings = {
             "host": {
-                "id": $(".hostid").val(),
+                "id": $.session.get('loggedInId'),
                 "controls": $(".controls").val()
             },
             "name": $(".gamename").val(),
@@ -134,15 +134,15 @@ $(document).ready(function () {
         });
     });
 });
-// method that a user to join a game created/hosted by another user
+// method that is used to join a game created/hosted by another user
 $(document).ready(function () {
     $("#joingame").click(function () {
 
         var gameSettings = {
             "opponent": {
-                "id": "2"
+                "id": $.session.get('loggedInId'),
             },
-            "gameId": $("#deleteid").val()
+            "gameId": $("#gameid").val()
         };
 
         var settings = {
@@ -159,9 +159,8 @@ $(document).ready(function () {
         });
     });
 });
-
+// function that populates table with all the logged in users pending games
 $(document).ready(function () {
-    //$("#populategame2").click(function () {
 
     // removes data from table
     $("#table2 td").remove();
@@ -169,26 +168,31 @@ $(document).ready(function () {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:10018/api/games/pending/" + $.session.get('loggedInId'), //+ loggedInId // getuserid?
+        "url": "http://localhost:10018/api/games/pending/" + $.session.get('loggedInId'),
         "method": "GET"
     };
-
-    /*$.ajax(settings).done(function (response) {
-     var loggedInId = '';
-     $.each(response, function (i, item) {
-     loggedInId = item.host.id;
-     });
-     console.log(response);
-     });*/
 
     $.ajax(settings).done(function (response) {
         var trHTML = '';
         $.each(response, function (i, item) {
             trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' + item.opponent.id
-                + '</td><td>' + item.name + '</td><td>' + item.created + '</td><td>' + item.winner.id + '</td></tr>';
+                + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
         });
         $('#table2').append(trHTML);
         console.log(response);
     });
-    //});
+    $("#populategame2").click(function () {
+
+        $("#table2 td").remove();
+
+        $.ajax(settings).done(function (response) {
+            var trHTML = '';
+            $.each(response, function (i, item) {
+                trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' + item.opponent.id
+                    + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
+            });
+            $('#table2').append(trHTML);
+            console.log(response);
+        });
+    });
 });

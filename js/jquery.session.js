@@ -1,3 +1,5 @@
+// downloaded from https://github.com/AlexChittock/JQuery-Session-Plugin
+
 (function($){
 
     $.session = {
