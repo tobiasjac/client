@@ -201,9 +201,9 @@ $(document).ready(function () {
     $("#startgame").click(function () {
 
         var gameSettings = {
-            "gameId" : $("#gameid").val(),
-            "opponent" : {
-                "controls" : $(".controls").val()
+            "gameId": $("#gameid").val(),
+            "opponent": {
+                "controls": $(".controls").val()
             }
         };
 
