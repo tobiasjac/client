@@ -140,7 +140,7 @@ $(document).ready(function () {
 
         var gameSettings = {
             "opponent": {
-                "id": $.session.get('loggedInId'),
+                "id": $.session.get('loggedInId')
             },
             "gameId": $("#gameid").val()
         };
@@ -194,5 +194,30 @@ $(document).ready(function () {
             $('#table2').append(trHTML);
             console.log(response);
         });
+    });
+});
+$(document).ready(function () {
+    $("#startgame").click(function () {
+
+        var gameSettings = {
+            "gameId" : $("#gameid").val(),
+            "opponent" : {
+                "controls" : $(".controls").val()
+            }
+        };
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:10018/api/games/start/",
+            "method": "POST",
+            "processData": false,
+            "data": JSON.stringify(gameSettings)
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+
     });
 });
