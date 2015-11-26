@@ -159,7 +159,7 @@ $(document).ready(function () {
         });
     });
 });
-// function that populates table with all the logged in users pending games
+// function that populates table with all the user's pending games
 $(document).ready(function () {
 
     // removes data from table
@@ -220,5 +220,43 @@ $(document).ready(function () {
             console.log(response);
         });
 
+    });
+});
+// function that lists all of the user's finished game in a table
+$(document).ready(function () {
+
+    // removes data from table
+    $("#table3 td").remove();
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://localhost:10018/api/games/finished/" + $.session.get('loggedInId'),
+        "method": "GET"
+    };
+
+    $.ajax(settings).done(function (response) {
+        var trHTML = '';
+        $.each(response, function (i, item) {
+            trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' + item.opponent.id
+                + '</td><td>' + item.winner.id + '</td><td>' + item.winner.score + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
+        });
+        $('#table3').append(trHTML);
+        console.log(response);
+    });
+
+    $("#populategame3").click(function () {
+
+        $("#table3 td").remove();
+
+        $.ajax(settings).done(function (response) {
+            var trHTML = '';
+            $.each(response, function (i, item) {
+                trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' + item.opponent.id
+                    + '</td><td>' + item.winner.id + '</td><td>' + item.winner.score + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
+            });
+            $('#table3').append(trHTML);
+            console.log(response);
+        });
     });
 });
