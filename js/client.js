@@ -17,10 +17,8 @@ $(document).ready(function () {
         };
 
         $.ajax(settings).done(function (data, status, xhr) {
-            //window.loggedInId = data.userid;
-            //console.log(loggedInId);
             if (xhr.status == 200) {
-                loggedInId = data.userid;
+                $.session.set('loggedInId', data.userid);
                 window.location.href = "../html/UserMenu.html";
             }
             else {
@@ -171,7 +169,7 @@ $(document).ready(function () {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:10018/api/games/pending/1", //+ loggedInId // getuserid?
+        "url": "http://localhost:10018/api/games/pending/" + $.session.get('loggedInId'), //+ loggedInId // getuserid?
         "method": "GET"
     };
 
