@@ -65,9 +65,8 @@ $(document).ready(function () {
         });
     });
 });
-// method that get all scores from database and populates table
+// method that get the 3 highest scores from database and populates table
 $(document).ready(function () {
-    $("#test2").click(function () {
 
         $("#table td").remove();
 
@@ -87,7 +86,6 @@ $(document).ready(function () {
             $('#table').append(trHTML);
             console.log(response);
         });
-    });
 });
 //method that deletes a game in the database according to gameId specified by user
 $(document).ready(function () {

@@ -7,7 +7,6 @@ h1 {
 }
 
 .bodystyle {
-    background-image: url("http://www.bet.com/content/betcom/topics/g/g-unit/_jcr_content/image.custom1200x675x20.dimg/2011-topic-pages-music-g-unit.jpg");
     background-color: #31b0d5;
     background-size: cover;
     font-family: Verdana, serif;
@@ -25,7 +24,7 @@ h1 {
 .showusers_block {
     width: 700px;
     padding: 20px;
-    background: #fff;
+    background: #dddddd;
     border-radius: 5px;
     border-top: 5px solid #ff656c;
     margin: 0 auto;
@@ -40,7 +39,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-.login-block input {
+.login-block input#username, input#password {
     width: 100%;
     height: 42px;
     box-sizing: border-box;
@@ -91,6 +90,7 @@ h1 {
     font-family: Verdana, serif;
     outline: none;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 
 .login-block button:hover, #login:hover {
