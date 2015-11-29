@@ -52,7 +52,7 @@ $(document).ready(function () {
                 + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
         });
         $('#table').append(trHTML);
-        console.log(response);
+        //console.log(response);
 
         $("#populategame").click(function () {
 
@@ -86,9 +86,9 @@ $(document).ready(function () {
             var trHTML = '';
             $.each(response, function (i, item) {
                 trHTML += '<tr><td>' + item.score + '</td><td>' + item.user.username + '</td><td>' + item.user.id +
-                    '</td><td>' + item.opponent.id + '</td><td>' + item.game.gameId + '</td></tr>';
+                    '</td><td>' + item.game.gameId + '</td></tr>';
             });
-            $('#table').append(trHTML);
+            $('#scoresTable').append(trHTML);
             //console.log(response);
         });
 });
@@ -158,6 +158,7 @@ $(document).ready(function () {
         };
 
         $.ajax(settings).done(function (response) {
+
             console.log(response);
         });
     });
@@ -199,12 +200,12 @@ $(document).ready(function () {
         });
     });
 });
-
+// function that start a pending game with controls from user
 $(document).ready(function () {
     $("#startgame").click(function () {
 
         var gameSettings = {
-            "gameId": $("#gameid").val(),
+            "gameId": $(".gameid").val(),
             "opponent": {
                 "controls": $(".controls").val()
             }
@@ -242,7 +243,8 @@ $(document).ready(function () {
         var trHTML = '';
         $.each(response, function (i, item) {
             trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' + item.opponent.id
-                + '</td><td>' + item.winner.id + '</td><td>' + item.winner.score + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
+                + '</td><td>' + item.winner.id + '</td><td>' + item.name + '</td><td>'
+                + item.created + '</td></tr>';
         });
         $('#table3').append(trHTML);
         //console.log(response);
@@ -256,7 +258,8 @@ $(document).ready(function () {
             var trHTML = '';
             $.each(response, function (i, item) {
                 trHTML += '<tr><td>' + item.gameId + '</td><td>' + item.host.id + '</td><td>' + item.opponent.id
-                    + '</td><td>' + item.winner.id + '</td><td>' + item.winner.score + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
+                    + '</td><td>' + item.winner.id + '</td><td>' + item.name + '</td><td>'
+                    + item.created + '</td></tr>';
             });
             $('#table3').append(trHTML);
             //console.log(response);

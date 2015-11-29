@@ -6,6 +6,11 @@ h1 {
     text-align: center;
 }
 
+#userLoggedIn {
+    text-align: right;
+    font-size: small;
+}
+
 .bodystyle {
     background-color: #31b0d5;
     background-size: cover;
@@ -149,4 +154,19 @@ table#table3 tr:nth-child(even) {
 }
 table#table3 tr:nth-child(odd) {
     background-color:#fff;
+}
+
+#scoresTable, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: left;
+}
+
+table#scoresTable tr:nth-child(even) {
+    background-color: #eee;
+}
+
+table#scoresTable tr:nth-child(odd) {
+    background-color: #fff;
 }
