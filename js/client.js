@@ -19,12 +19,17 @@ $(document).ready(function () {
         $.ajax(settings).done(function (data, status, xhr) {
             if (xhr.status == 200) {
                 $.session.set('loggedInId', data.userid);
+                $.session.set('username', loginInfo.username);
                 window.location.href = "../html/UserMenu.html";
             }
             else {
                 alert("Something went wrong. Try again!"); // not working
             }
         });
+    });
+    // function that prints username
+    $(function() {
+        $("#userLoggedIn").append($.session.get('username'));
     });
 });
 
@@ -60,7 +65,7 @@ $(document).ready(function () {
                         + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
                 });
                 $('#table').append(trHTML);
-                console.log(response);
+                //console.log(response);
             });
         });
     });
@@ -84,7 +89,7 @@ $(document).ready(function () {
                     '</td><td>' + item.opponent.id + '</td><td>' + item.game.gameId + '</td></tr>';
             });
             $('#table').append(trHTML);
-            console.log(response);
+            //console.log(response);
         });
 });
 //method that deletes a game in the database according to gameId specified by user
@@ -177,7 +182,7 @@ $(document).ready(function () {
                 + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
         });
         $('#table2').append(trHTML);
-        console.log(response);
+        //console.log(response);
     });
     $("#populategame2").click(function () {
 
@@ -190,7 +195,7 @@ $(document).ready(function () {
                     + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
             });
             $('#table2').append(trHTML);
-            console.log(response);
+            //console.log(response);
         });
     });
 });
@@ -240,7 +245,7 @@ $(document).ready(function () {
                 + '</td><td>' + item.winner.id + '</td><td>' + item.winner.score + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
         });
         $('#table3').append(trHTML);
-        console.log(response);
+        //console.log(response);
     });
 
     $("#populategame3").click(function () {
@@ -254,7 +259,7 @@ $(document).ready(function () {
                     + '</td><td>' + item.winner.id + '</td><td>' + item.winner.score + '</td><td>' + item.name + '</td><td>' + item.created + '</td></tr>';
             });
             $('#table3').append(trHTML);
-            console.log(response);
+            //console.log(response);
         });
     });
 });
