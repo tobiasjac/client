@@ -22,9 +22,9 @@ $(document).ready(function () {
                 $.session.set('username', loginInfo.username);
                 window.location.href = "../html/UserMenu.html";
             }
-            else {
-                alert("Something went wrong. Try again!"); // not working
-            }
+            })
+            .fail(function () {
+                alert("Wrong username or password. Try again!")
         });
     });
     // function that prints username
