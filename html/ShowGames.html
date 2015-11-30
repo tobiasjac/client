@@ -8,14 +8,13 @@
 </head>
 <body class="bodystyle">
 
-<div class="showusers_block">
+<div class="table_block">
     <p id="userLoggedIn">Logged in as: </p>
     <h3>List of all open games available to join:</h3>
     <table style="width:100%" id="table">
         <tr>
             <th>Game ID</th>
-            <th>Host</th>
-            <th>Opponent</th>
+            <th>Host ID</th>
             <th>Name</th>
             <th>Created</th>
         </tr>
@@ -27,15 +26,14 @@
         <input name="" type="button" id="deletegame" value="Delete Game"/>
         <input name="" type="button" id="joingame" value="Join Game"/>
         <a href="CreateGame.html"><input type="button" value="Create Game"/></a>
-        <a href="UserMenu.html"><input name="" type="button" value="Back to menu"/></a>
     </form>
 
     <h3>List of all your pending games:</h3>
     <table style="width:100%" id="table2">
         <tr>
             <th>Game ID</th>
-            <th>Host</th>
-            <th>Opponent</th>
+            <th>Host ID</th>
+            <th>Opponent ID</th>
             <th>Name</th>
             <th>Created</th>
         </tr>
@@ -53,9 +51,9 @@
     <table style="width:100%" id="table3">
         <tr>
             <th>Game ID</th>
-            <th>Host</th>
-            <th>Opponent</th>
-            <th>Winner</th>
+            <th>Host Id</th>
+            <th>Opponent ID</th>
+            <th>Winner ID</th>
             <th>Name</th>
             <th>Created</th>
         </tr>
@@ -63,6 +61,7 @@
 
     <form>
         <input type="button" id="populategame3" value="Populate Table"/>
+        <a href="UserMenu.html"><input id="backToMenuButton" type="button" value="Back to menu"/></a>
     </form>
 
 </div>
