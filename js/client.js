@@ -17,15 +17,15 @@ $(document).ready(function () {
         };
 
         $.ajax(settings).done(function (data, status, xhr) {
-            if (xhr.status == 200) {
-                $.session.set('loggedInId', data.userid);
-                $.session.set('username', loginInfo.username);
-                window.location.href = "../html/UserMenu.html";
-            }
+                if (xhr.status == 200) {
+                    $.session.set('loggedInId', data.userid);
+                    $.session.set('username', loginInfo.username);
+                    window.location.href = "../html/UserMenu.html";
+                }
             })
             .fail(function () {
                 alert("Wrong username or password. Try again!")
-        });
+            });
     });
     // function that prints username
     $(function() {
