@@ -12,7 +12,6 @@ $(document).ready(function () {
             "crossDomain": true,
             "url": "http://localhost:10018/api/login/",
             "method": "POST",
-            "processData": false,
             "data": JSON.stringify(loginInfo)
         };
 
@@ -101,9 +100,7 @@ $(document).ready(function () {
             "async": true,
             "crossDomain": true,
             "url": "http://localhost:10018/api/games/" + $("#gameid").val(),
-            "method": "POST",
-            "processData": false,
-            "data": ""
+            "method": "POST"
         };
 
         $.ajax(settings).done(function (response) {
@@ -135,7 +132,6 @@ $(document).ready(function () {
             "crossDomain": true,
             "url": "http://localhost:10018/api/games/",
             "method": "POST",
-            "processData": false,
             "data": JSON.stringify(gameSettings)
         };
 
@@ -160,7 +156,6 @@ $(document).ready(function () {
             "crossDomain": true,
             "url": "http://localhost:10018/api/games/join",
             "method": "POST",
-            "processData": false,
             "data": JSON.stringify(gameSettings)
         };
 
@@ -228,7 +223,6 @@ $(document).ready(function () {
             "crossDomain": true,
             "url": "http://localhost:10018/api/games/start/",
             "method": "POST",
-            "processData": false,
             "data": JSON.stringify(gameSettings)
         };
 
