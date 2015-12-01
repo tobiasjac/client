@@ -27,9 +27,10 @@ $(document).ready(function () {
                 alert("Wrong username or password. Try again!")
             });
     });
-    // function that prints username
+    // function that prints username + user id on the different screens
     $(function() {
-        $("#userLoggedIn").append($.session.get('username'));
+        $("#userLoggedIn").append($.session.get('username')) + $("#userLoggedIn").append(", id: ") +
+        $("#userLoggedIn").append($.session.get('loggedInId'));
     });
 });
 
@@ -221,7 +222,11 @@ $(document).ready(function () {
         };
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
+            if (response.winner.id == $.session.get('loggedInId')) {
+                alert("Congratulations. You won!")
+            } else {
+                alert("Unfortunately, you lost!")
+            }
         });
 
     });
