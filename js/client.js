@@ -28,7 +28,7 @@ $(document).ready(function () {
             });
     });
     // function that prints username + user id on the different screens
-    $(function() {
+    $(function () {
         $("#userLoggedIn").append($.session.get('username')) + $("#userLoggedIn").append(", id: ") +
         $("#userLoggedIn").append($.session.get('loggedInId'));
     });
@@ -71,27 +71,27 @@ $(document).ready(function () {
         });
     });
 });
-// method that get the 3 highest scores from database and populates table
+// method that gets all of the scores from database and populates table with descending scores
 $(document).ready(function () {
 
-        $("#table td").remove();
+    $("#table td").remove();
 
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "http://localhost:10018/api/scores/",
-            "method": "GET"
-        };
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://localhost:10018/api/scores/",
+        "method": "GET"
+    };
 
-        $.ajax(settings).done(function (response) {
-            var trHTML = '';
-            $.each(response, function (i, item) {
-                trHTML += '<tr><td>' + item.score + '</td><td>' + item.user.username + '</td><td>' + item.user.id +
-                    '</td><td>' + item.game.gameId + '</td></tr>';
-            });
-            $('#scoresTable').append(trHTML);
-            //console.log(response);
+    $.ajax(settings).done(function (response) {
+        var trHTML = '';
+        $.each(response, function (i, item) {
+            trHTML += '<tr><td>' + item.score + '</td><td>' + item.user.username + '</td><td>' + item.user.id +
+                '</td><td>' + item.game.gameId + '</td></tr>';
         });
+        $('#scoresTable').append(trHTML);
+        //console.log(response);
+    });
 });
 //method that deletes a game in the database according to gameId specified by user
 $(document).ready(function () {
@@ -107,8 +107,14 @@ $(document).ready(function () {
         };
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
-        });
+                console.log(response);
+            })
+            .success(function () {
+                alert("Game was deleted! Update the tables by clicking 'populate'");
+            })
+            .fail(function () {
+                alert("Something went wrong!");
+            });
     });
 });
 // function that creates game in database
@@ -159,9 +165,14 @@ $(document).ready(function () {
         };
 
         $.ajax(settings).done(function (response) {
-
-            console.log(response);
-        });
+                console.log(response);
+            })
+            .success(function () {
+                alert("Game was joined! Update the tables by clicking 'populate'");
+            })
+            .fail(function () {
+                alert("Something went wrong!");
+            });
     });
 });
 // function that populates table with all the user's pending games
