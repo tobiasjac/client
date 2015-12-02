@@ -28,8 +28,7 @@ $(document).ready(function () {
     });
     // function that prints username + user id on the different screens
     $(function () {
-        $("#userLoggedIn").append($.session.get('username')) + $("#userLoggedIn").append(", id: ") +
-        $("#userLoggedIn").append($.session.get('loggedInId'));
+        $("#userLoggedIn").append($.session.get('username') + ", id: " + $.session.get('loggedInId'));
     });
 });
 
