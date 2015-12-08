@@ -10,7 +10,7 @@ $(document).ready(function () {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:10018/api/login/",
+            "url": config.url + "/login/",
             "method": "POST",
             "data": JSON.stringify(loginInfo)
         };
@@ -40,7 +40,7 @@ $(document).ready(function () {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:10018/api/games/open",
+        "url": config.url + "/games/open",
         "method": "GET"
     };
 
@@ -77,7 +77,7 @@ $(document).ready(function () {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:10018/api/scores/",
+        "url": config.url + "/scores/",
         "method": "GET"
     };
 
@@ -98,7 +98,7 @@ $(document).ready(function () {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:10018/api/games/" + $("#gameid").val(),
+            "url": config.url + "/games/" + $("#gameid").val(),
             "method": "POST"
         };
 
@@ -129,7 +129,7 @@ $(document).ready(function () {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:10018/api/games/",
+            "url": config.url + "/games/",
             "method": "POST",
             "data": JSON.stringify(gameSettings)
         };
@@ -153,7 +153,7 @@ $(document).ready(function () {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:10018/api/games/join",
+            "url": config.url + "/games/join",
             "method": "POST",
             "data": JSON.stringify(gameSettings)
         };
@@ -178,7 +178,7 @@ $(document).ready(function () {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:10018/api/games/pending/" + $.session.get('loggedInId'),
+        "url": config.url + "/games/pending/" + $.session.get('loggedInId'),
         "method": "GET"
     };
 
@@ -220,7 +220,7 @@ $(document).ready(function () {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:10018/api/games/start/",
+            "url": config.url + "/games/start/",
             "method": "POST",
             "data": JSON.stringify(gameSettings)
         };
@@ -244,7 +244,7 @@ $(document).ready(function () {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:10018/api/games/finished/" + $.session.get('loggedInId'),
+        "url": config.url + "/games/finished/" + $.session.get('loggedInId'),
         "method": "GET"
     };
 
