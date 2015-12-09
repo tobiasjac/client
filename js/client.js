@@ -262,6 +262,8 @@ $(document).ready(function () {
             // if/else-statement that checks if the winner of the game's id matches the one who's logged in
             if (response.winner.id == $.session.get('loggedInId')) {
                 alert("Congratulations. You won!")
+            } else if (response.winner.id == 0) {
+                alert("The game was a draw - nobody won!")
             } else {
                 alert("Unfortunately, you lost!")
             }
